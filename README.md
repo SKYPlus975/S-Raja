@@ -1,213 +1,383 @@
-![github-banner](https://user-images.githubusercontent.com/3611928/169144953-49223b21-1e00-4607-971a-4f870468a986.svg)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Go</title>
+    
+    <style>
+   *
+  {
+box-sizing: border-box;
+  }
 
-This beautiful theme from the [Matter Design Team](https://matterdesign.com.au/) gives you the styling and scaffolding for your next e-commerce site. You can customize to your heart's content and add the tooling for cart, transactions, product, and more. This theme uses:
-
-- [Gatsby](https://www.gatsbyjs.com/)
-- [CSS Modules](https://github.com/css-modules/css-modules)
-- [Prettier](https://prettier.io/)
-- [React Helmet](https://github.com/nfl/react-helmet)
-
-Take a look at the screenshot below or preview the live site here: https://gatsby-ecommerce-theme.netlify.app/!
-![full page screenshot](https://res.cloudinary.com/dzkoxrsdj/image/upload/v1653371030/CleanShot_2022-05-24_at_01.11.52_2x_bspa8c.jpg)
-
-> 🧐 Please be aware that some aspects of this theme are not fully functional and will need to be integrated with the recommended tooling mentioned at the end of the [README](#next-steps-with-this-theme). 
-
-## Table of Contents:
-
-- [Quick Steps + Deploy Options](#quick-setup--deploy-option)
-  - [Cloning + Installing Packages](#cloning--installing-packages)
-- [Deploying](#deploying)
-- [Project Structure](#project-structure)
-  - [Making Changes to the Hero Component](#making-changes-to-the-hero-component)
-  - [Making Changes to the Header or Footer](#making-content-changes-to-the-header-or-footer)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
-  - [Removing Cypress](#removing-cypress)
-- [Next Steps with This Theme](#next-steps-with-this-theme)
-
-## Quick Setup + Deploy Option
-
-Click the button below and it will help you create a new repo, create a new Netlify project, and deploy this Theme!
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-ecommerce-theme&utm_source=github&utm_medium=matter-design-theme-repo&utm_campaign=template-team)
-
-## Regular Setup
-
- ### Cloning + Installing Packages
- 
-  - Clone this repo with one of these options:
-
-    - Click the 'Use this template' button at the top of the page
-    - Via the command line:
-       ```shell
-       git clone https://github.com/netlify-templates/gatsby-ecommerce-theme/
-       ```
-    - Or you can clone the theme straight from the Netlify CLI, using the `netlify sites:create-template` command in your terminal ([learn more about this command here](https://www.netlify.com/blog/create-a-site-from-a-template-using-the-netlify-cli)) to do the entire flow for you.
-
-  From there, you can install the project's dependencies by running:
-
-  ```shell
-  npm install or yarn install
-  ```
-
-  Finally, you can run your project locally with:
-
-  ```shell
-  cd gatsby-sydney-ecommerce-theme/
-  npm start or yarn start
-  ```
-  
-  or, run it using the Netlify CLI with:
-  
-  ```shell
-  netlify run dev
-  ```
-  
-  Open your browser and visit <http://localhost:5000>, your project should now be running!
-  
-  ## Deploying
- 
-  After installing and customizing your new e-commerce theme it's now time to deploy! 
-  
-   -  You can Deploy using the [Netlify CLI](https://cli.netlify.com/):
-
-      ```bash
-      netlify init # initialize a new Netlify project & deploy
-      ```
-
-   It will use the information from the included Netlify configuration file, [`netlify.toml`](./netlify.toml), to set up the build command as `gatsby build` to create a static project and locate the build project in the `public` directory.
-
-   The `init` process will also set up continuous deployment for your project so that a new build will be triggered & deployed when you push code to the repo (you can change this from your project dashboard: Site Settings/Build & deploy/Continuous Deployment).
-
-   You can also use `netlify deploy (--prod)` to manually deploy and `netlify open` to open your project dashboard.
-
-  > 💡 we only have so many keystrokes to give, use `ntl` shorthand for `netlify` or make [an alias of your own](https://www.netlify.com/blog/2020/04/12/speed-up-productivity-with-terminal-aliases/) to save hours...of accumulated milliseconds
-
-  - You can deploy within the Netlify site by connecting to git, this [video](https://www.youtube.com/watch?v=4h8B080Mv4U&t=107s) will walk you through that process. 
-  - Or, you can use the Deploy to Netlify button which will walk you through the process of spinning up a repo, creating a new project in Netlify, AND deploying it :)
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-ecommerce-theme&utm_source=github&utm_medium=matter-design-theme-repo&utm_campaign=template-team)
-
-## Project Structure
-
-Here is a bit of an overview of the directory structure of the project:
-
-| Directory | Description |
-| :---- | :---- |
-| `src/components/` | Stores reusable elements across the site. (e.g. BlogPreview element) |
-| `src/pages/` | Stores routes for a user to go to based on each `.js` file and nested folder (e.g. `src/pages/about.js` creates a route `/about` in the web app) |
-| `src/helpers` | Stores mock data for the blog or product list and general utility functions. |
-
-### Making changes to the Hero component
-
-On the homepage of the website and a few other places, there is a full-width image component. We refer to this as the `<Hero/>` component. Here is a bit of an overview of what its API looks like:
-
-```jsx
-<Hero
-  maxWidth='500px' // how big the image's maxumim should be
-  image={'/banner1.png'} // the source location for the image
-  title={'Essentials for a cold winter'} // the main text displayed
-  subtitle={'Discover Autumn Winter 2021'} // text found below the main text
-  ctaText={'shop now'} // the presented text for a user to click on
-  ctaAction={goToShop} // the location the call-to-action text directs users
-/>
-```
-
-You can see it in action under [`src/pages/index.js`](./src/pages/index.js) or see the component in [`src/components/Hero/Hero.js`](./src/components/Hero/Hero.js).
-
-### Making content changes to the Header or Footer
-
-The project contains a file named `src/config.json`. Inside of this file describes the content of the header links (`headerLinks`) as well as the footer links (`footerLinks`). For the header, each element in the array has a base structure of:
-
-```json
-{
-  "menuLabel": "The label that is given to a user",
-  "menuLink": "The URL that this should take a user to"
+.header {
+  padding: 25px;
+  text-align: center;
+  background: green;
+  color: pink;
 }
-```
-
-If you want the menu item to have a dropdown, you can also add a `category` key with the value being an array of the categories and their containing elements, here's what the base could look like:
-
-```json
+.input-group-text
 {
-  "menuLabel": "The label that is given to a user",
-  "menuLink": "The URL that this should take a user to",
-  "category": [
-    {
-      "categoryLabel": "Label you want the category to have",
-      "submenu": [
-        {
-          "menuLabel": "A label underneath the category",
-          "menuLink": "The associated link to this label"
-        }
-      ]
-    }
-  ]
+  width: 100px;
+  background-image: linear-gradient(#00ff7e,#1f3d90);
+  border: 4px solid #fff !important;
+  color: #fff !important;
+  padding: 8px 0!important;
+  border-radius: 50px !important;
+  box-shadow: none !important;
+  float: right;
 }
-```
 
-The footer works in a similar way. It assumes each element in the array has a heading and an array of associated links to direct folks to:
+.navbar {
+  overflow: hidden;
+  background-color: black;
+}
 
-```json
-"footerLinks": [
-    {
-      "subTitle": "Label of the column in the footer",
-      "links": [
-        {
-          "text": "Text to display to the user",
-          "link": "URL of where to take the user to when clicked"
-        },
-      ]
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a.right {
+  float: right;
+}
+
+.footer {
+  text-align: center;
+  color: purple;
+}
+.navbar a:hover {
+  background-color: #ddd;
+    color: black;
     }
-]
-```
 
-## Testing
+.footer2 {
+  text-align: left;
+  color: red;
+}
+.footer3{
+  text-align: center;
+  color: brown;
+}
+.footer4{
+  text-align: center;
+}
+.footer5{
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+.footer5 h1{
+  color: brown;
+}
+.footer5 h2{
+  text-align: center;
+  color: red;
+}
+.footer5 li{
+  text-align: left;
+}
+.footer5 img{
+  width: 100px;
+}
 
-### Included Default Testing
+.header img
+{ 
+  width: 170px;
+  float: left;
+  padding-right: 20px;
+}
 
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
+.xnamefname {
+  background-color: #aaa;
+    width: 100%;
+      padding: 20px;
+      }
+      
+  #button1{
+    padding: 15px;
+    padding-inline: 20px;
+    background-color: black;
+    color: white;
+    font-size: 100%px;
+    border-radius: 10px;
+  }
+  #button2{
+    padding: 15px;
+    padding-inline: 20px;
+    background-color: black;
+    color: white;
+    font-size: 100%px;
+    border-radius: 10px;
+  }
+  
+      
+      @media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
 
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+        width: 100%;
+  }
+} 
+</style>
 
-If your team is not interested in this tooling, you can remove them with ease!
+</head>
+<body>
+  
+  <div class="header">
+     <img src="banner.png">
+     <a href="login.html">
+       <button type="button" class="input-group-text btn"><b>Login</b></button></a>
+  <h1><b>Easy Go Travel</b></h1></div>
+ 
 
-### Removing Renovate
+<div class="navbar">
+  <a href="#"><b>Home</a></b>
+  <a href="aboutus.html"><b>About us</b></a>
+  <a href="Contact form.html" class="right"><b>Contact us</b></a>
+</div>
+   
+    <br>
+  
+      
+<table border="5" bordercolor="#ff0000">
+  <tr>
+  <td>
+  <td style="width:200px; height:150px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="aeroplane.jpg"
+                style="max-height:100%; max-width:100%" />
+  
+  <td style="width:200px; height:135px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="train.jpg"
+                style="max-height:100%; max-width:100%" />
+ 
+  <td style="width:100%px; height:100%px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel.jpg"
+                style="max-height:100%; max-width:100%" />
+  
+  <td style="width:200px; height:130px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="cap.jpg"
+                style="max-height:100%; max-width:100%" />
+  
+  <td style="width:200px; height:130px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="bus.jpg"
+                style="max-height:100%; max-width:100%"/>
+             </td>
+             </tr>
+           
+      </table>
+ 
+ <br>
+ 
+ 
+<marquee bgcolor="pink" direction="left" height="20"><b>Welcome To Easy Go Travel!  The Summer sale is live with an affordable Price of Picnic Spot. So Make Your Trip now and Enjoy This Summer Vacation.</b> </marquee>
+ 
+ <div class="footer">
+  <h3><b>*Best demanding Holiday Destination !</b></h3>
+</div>
+ 
+ 
+ <table border="5" bordercolor="white">
+  <tr>
+  <td>
+  <td style="width:200px; height:150px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="kashmir.jpg"
+                style="max-height:100%; max-width:100%" />
+     </td>
+  
+    <td style="width:200px; height:160px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="himachal.jpg"
+                style="max-height:100%; max-width:100%"/>
+             </td>
+   
+      <td style="width:200px; height:160px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="maldives.jpg"
+                style="max-height:100%; max-width:100%"/>
+             </td>
+  
+  <td style="width:200px; height:160px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="ladakh.jpg"
+                style="max-height:100%; max-width:100%"/>
+             </td>
+  
+    <td style="width:200px; height:160px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="goa.jpg"
+                style="max-height:100%; max-width:100%"/>
+             </td>
+           </tr>
+      </table>   
+ <br>
+      
+       <table border=2 bordercolor="black" width=100% height=100% align="left">
+      </table>
+      
+   <div class="footer2">
+  <h1><b>Summer Special</b></h1></div>
+  
+ <h6>Enjoy the Holidays with your family member!<br>Make Your Trip Now!</h6><p>
 
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
+  <table border="5" bordercolor="white">
+  <tr>
+  <td>
+  <td style="width:450px; height:350px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="keralatrip.jpg"
+                style="max-height:100%; max-width:100%"/>
+      <br>
+    <a href="keralapicnic.html">
+  <input type="submit" value="Book Now" id="button1"/>
+  </a>
+  </td>
+    
+     
+     
+       <td>
+  <td style="width:450px; height:350px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="maldives2.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+          <a href="Maldivespicnic.html">
+    <input type="submit" value="Book Now" id="button1"/>
+  </a>
+     </td>
+     
+     <td>
+  <td style="width:450px; height:350px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="northeast.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+         <a href="Northeastpicnic.html">
+    <input type="submit" value="Book Now" id="button1"/>
+  </a>         
+     </td>
+    
+           </tr>
+      </table>
+      <br><br>
+      
+       <table border=3 bordercolor="green" width=100% height=100% align="left">
+      </table>
+     
+      <div class="footer3">
+  <h1><b>Hotel Booking</b></h1></div>
+  <div class="footer4">
+ <h6>Book Your Favourite Hotel with best discount!</h6></div>
+ 
+   <table border="5" bordercolor="white">
+  <tr>
+  <td>
+  <td style="width:400px; height:500px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel1.jpg"
+                style="max-height:100%; max-width:100%"/>
+      <br>
+    <a href="hotel1.html">
+  <input type="submit" value="Book Now" id="button2"/></a>
+  
+         <td>
+  <td style="width:400px; height:500px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel2.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+          <a href="hotel2.html">
+    <input type="submit" value="Book Now" id="button2"/>
+  </a>
+     </td>
+  
+     <td>
+  <td style="width:365px; height:500px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel3.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+         <a href="hotel3.html">
+    <input type="submit" value="Book Now" id="button2"/>
+  </a>         
+</td> 
+    <tr>
+      
+           <td>
+  <td style="width:400px; height:500px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel4.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+         <a href="hotel4.html">
+    <input type="submit" value="Book Now" id="button2"/>
+  </a>         
+     </td>
+     <td>
+  <td style="width:400px; height:500px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel5.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+         <a href="hotel5.html">
+    <input type="submit" value="Book Now" id="button2"/>
+  </a>         
+     </td>
+           <td>
+  <td style="width:400px; height:500px; background-color:white;text-align:center; vertical-align:middle">
+            <img src="hotel6.jpg"
+                style="max-height:100%; max-width:100%"/>
+   <br>
+         <a href="hotel6.html">
+    <input type="submit" value="Book Now" id="button2"/>
+  </a>         
+     </td>
+    </tr>
+    </table>
+     
+        <table border=3 bordercolor="green" width=100% height=100% align="left">
+      </table>
+     <br>
+     
+      <div class="footer">
+  <h1><b>Online Ticket Booking !</b></h1>
+</div>
+     <div class="footer4">
+       <h5>Book Aeroplane and Train Ticket Online With Upto 90% Off !</h5>
+ 
+ <table border="5" bordercolor="#ff0000">
+  <tr>
+  <td>
+  <td style="max-width:50%; height:100%; background-color:white;text-align:center; vertical-align:middle">
+    <a href="aeroplaneticket.html">
+              <img src="aeroplaneticket.jpg"
+                style="max-height:100%; max-width:100%" /></a>
+                
+  <td style="max-width:50%; height:100%; background-color:white;text-align:center; vertical-align:middle">
+     <a href="trainticket.html">
+            <img src="trainticket.jpg"
+                style="max-height:100%; max-width:100%" /></a>
+                </td>
+             </tr></table>
+             <br>
+            <table border=3 bordercolor="green" width=100% height=100% align="left">
+      </table>
+     </div>
+  
+  
+<div class="footer5">
+  <h1>Contact Info</h1>
+ <li><b>Address : Shreeyash Polytechnic, Aurangabad</b></li>
+ <li><b>Phone No : +91 7666768179</b></li>
+ <li><b>Contact Email : vishalghuge2005@gmail.com</b></li><br>
+ <div class="navbar5">
+  <h2>Follow On Social Media</h2>
+  <a href="https://www.instagram.com/its_vishalghuge_2005/"><img src="instagram.jpg"></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://www.facebook.com/vishal.ghuge.524934"><img src="facebook.jpg"></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://msng.link/o/?vishalghuge2188=sc"><img src="Snapchat.jpg"></a>
+  </div>
+</div>
 
-### Removing Cypress
-
-For our testing, we use [Cypress](https://www.cypress.io/) for end-to-end testing. This makes sure that we can validate that our templates are rendering and displaying as we’d expect. By default, we have Cypress not generate deploy links if our tests don’t pass. If you’d like to keep Cypress and still generate the deploy links, go into your `netlify.toml` and delete the plugin configuration lines:
-
-```diff
-[[plugins]]
-  package = "netlify-plugin-cypress"
--  [plugins.inputs.postBuild]
--    enable = true
--
--  [plugins.inputs]
--    enable = false
-```
-
-If you’d like to remove the `netlify-plugin-cypress` build plugin entirely, you’d need to delete the entire block above instead. And then make sure sure to remove the package from the dependencies using:
-
-```bash
-npm uninstall -D netlify-plugin-cypress
-```
-
-And lastly if you’d like to remove Cypress entirely, delete the entire `cypress` folder and the `cypress.config.ts` file. Then remove the dependency using:
-
-```bash
-npm uninstall cypress
-```
-
-## Next Steps with this theme
-
-This project is intended to be extended by you! We wanted to make possible to replace parts of it with your own tools and data sources. If you're interested on a direction, you can refer to Matter's [how to use section](https://gatsby-ecommerce-theme.netlify.app/how-to-use/) in this project or you may want to consider using [Matter's toolset with their JAMM framework](https://matterdesign.com.au/service/headless-commerce-with-jamm/) which includes some projects like:
-- [BigCommerce](https://bigcommerce.zfrcsk.net/c/2429593/854992/2941) for a headless e-commerce solution
-- [Builder](https://www.builder.io) as a CMS for the blog articles or other content creation
-- [Klaviyo](https://www.klaviyo.com/) for any email or SMS marketing automation
+   <table border=3 bordercolor="green" width=100% height=100% align="left">
+      </table>
+      <br><br>
+   </body>
+</html>
